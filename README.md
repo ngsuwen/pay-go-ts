@@ -1,46 +1,72 @@
-# Getting Started with Create React App
+# Pay&Go
+GA Project 2 
+[Live Demo](https://ngsuwen.github.io/pay-go-ts)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Dunny Users for login:
+|  User Id  | Password                                                                                           |
+|   :-:   | ------------------------------------------------------------------------------------------------- |
+| johnd  | m38rmF$ |
+| mor_2314  | 83r5^_  |
+| kevinryan  | kev02937@  |
+| donero  | ewedon  |
+| derek  | jklg*_56  |
+| david_r  | 3478*#54  |
+| snyder  | f238&@*$  |
+| hopkins  | William56$hj  |
+| kate_h  | kfejk@*_  |
+| jimmie_k  | klein*#%*  |
 
-## Available Scripts
+## Project Description
+A One Page ecommerce mock-up that displays products from FakeStoreAPI. Users can experience the full online shopping procedure from browsing of products to checking out. (Preview below)
 
-In the project directory, you can run:
+## Technologies
+* **Javascript**
+* **React** 
+* **Material UI** 
 
-### `npm start`
+## APIs used
+* [fakestore (dummy products)](https://fakestoreapi.com/docs)
+* [currency conversion rate](https://github.com/fawazahmed0/currency-api)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Accomplishments
+Users are able to: 
+* Sign in / out
+* Browse products based on categories
+* Sort products by name and price
+* View in 6 different currencies
+* View product details
+* Add products to cart
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Mobile-friendly webpage with the following structure:
+* Header
+* Nagivation tabs
+* Content body
+* Footer
 
-### `npm test`
+## Difficulties Faced
+* **Material UI:** Since this was my first time using MUI, I had to take some time to read up on the documentation. The first few days were confusing, especially when it comes to customizing CSS and themes. However, once I got used to how MUI works, the process became much smoother later on. 
+* **Flow of code:** There were times when my code did not read in the sequence I expected. This was a problem for me when I had to update multiple states and re-redner on one single click. To help me better understand the flow, I used 'console.log()' to help me track the current state during the process. 
+* **States, States, STATES:** I had to use a lot of different states in this project, and some of them are even used across different components. It became really confusing to me at one point when I had different states with similar names being used everywhere. Lesson learnt: I need to name my states properly to avoid confusion :sweat_smile:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Personal Reflection
+I feel that I still have a lot to learn / get used to in terms of making my code efficient and less confusing. For example, whenever I create a new state, I will ask myself if it is necessary, and where it will be used. This helps me to decide where I should create my state in and how I pass the state to the relevant components. 
+Another area for improvement is how I implement my CSS styles. Currently, I use a lot of in-line styles, with some that are repeated multiple times. I could have used a different mmethod that requires less repetitions of codes (eg. MUI theme, CSS classes)
 
-### `npm run build`
+If only I knew... Things I would have done differently :thinking:: 
+* Use divs and flex-box instead of table form for the footer: With the current table form, I cannot convert the footer to a single column when viewed on mobile (unless I create a new component for it). 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Snapshot Previews
+<p float="left">
+<img src="https://user-images.githubusercontent.com/88722847/142601174-ed57eb0e-5050-44bc-994a-5274ec1e036c.png" width="45%" height="275px"/>
+<img src="https://user-images.githubusercontent.com/88722847/142601407-127f8a78-9af6-4877-bd9e-6af9a9cfa324.png" width="45%" height="275px"/>
+<img src="https://user-images.githubusercontent.com/88722847/142601465-55632c1e-a62b-43e9-a0b3-7827a29485bf.png" width="45%" height="300px"/>
+<img src="https://user-images.githubusercontent.com/88722847/142601552-f896e431-d58b-4004-8a81-2457347065cd.png" width="45%" height="300px"/>
+</p>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Mobile**
+<p float="left">
+<img src="https://user-images.githubusercontent.com/88722847/142604375-9215c578-6cd4-42c1-b113-857afc624378.gif" width="200"/>
+<img src="https://user-images.githubusercontent.com/88722847/142604387-77e5c563-31ae-4d34-8245-86de1b6ee910.gif" width="200"/>
+<img src="https://user-images.githubusercontent.com/88722847/142606766-1fa56d65-eb1a-4d84-b39a-19984305af02.gif" width="200"/>
+<img src="https://user-images.githubusercontent.com/88722847/142604552-1e0b32cc-44cb-4ebe-98c7-7013217c5ad0.gif" width="200"/>
+</p>

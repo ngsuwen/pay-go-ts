@@ -1,6 +1,7 @@
 {
   "name": "pay-go-ts",
   "version": "0.1.0",
+  "homepage": "https://ngsuwen.github.io/pay-go-ts/",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.9.3",
