@@ -1,6 +1,7 @@
 import Home from "./components/Pages/HomePage/Home";
 import Footer from "./components/Pages/General/Footer";
 import Header from "./components/Pages/General/Header";
+import CustomizedTabs from "./components/Pages/General/Tab";
 import Category from "./components/Pages/CategoryPage/Category";
 
 import { Route, Routes, Navigate } from "react-router-dom";
@@ -17,7 +18,7 @@ export const SortContext = createContext<[sort:string, setSort:React.Dispatch<Re
 
 function App() {
   const [currency, setCurrency] = useState<string>('usd $');
-  const [sort, setSort] = useState<string>('');
+  const [sort, setSort] = useState<string>('price');
   const [rate, setRate] = useState<number>(1);
   // const [cart, setCart] = useState([]);
   // const [userId, setUserId] = useState(null);
@@ -27,7 +28,7 @@ function App() {
       {/* <UserContext.Provider value={[userId, setUserId]}> */}
       <nav>
         <Header/>
-        {/* <Tab/> */}
+        <CustomizedTabs/>
       </nav>
       <main>
       {/* <DataContext.Provider value={[cart, setCart]}> */}
@@ -35,8 +36,8 @@ function App() {
       <SortContext.Provider value={[sort, setSort]}>
       <RateContext.Provider value={[rate, setRate]}>
       <Routes>
-        <Route path='/' element={<Category />} />
-        {/* <Route path='/category/:category' element={<Category />} /> */}
+        <Route path='/' element={<Home />} />
+        <Route path='/category/:category' element={<Category />} />
         {/* <Route path='/category/:category/:id' element={<Product />} />
         <Route path='/cart' element={<Cart />} />
         <Route path='/login' element={<Login />} />
