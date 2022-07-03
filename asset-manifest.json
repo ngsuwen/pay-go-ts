@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/pay-go-ts/static/js/main.12a54c77.js",
+    "main.js": "/pay-go-ts/static/js/main.8ee9018d.js",
     "index.html": "/pay-go-ts/index.html",
-    "main.12a54c77.js.map": "/pay-go-ts/static/js/main.12a54c77.js.map"
+    "main.8ee9018d.js.map": "/pay-go-ts/static/js/main.8ee9018d.js.map"
   },
   "entrypoints": [
-    "static/js/main.12a54c77.js"
+    "static/js/main.8ee9018d.js"
   ]
 }
