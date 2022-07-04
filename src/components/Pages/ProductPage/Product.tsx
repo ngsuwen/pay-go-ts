@@ -4,7 +4,7 @@ import { Alert, Snackbar, IconButton, Box, Container, Card, CardContent, Typogra
 import QtySelector from "./QtySelector";
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import ImageZoom from "./ImageZoom";
-import { CurrencyContext, RateContext } from "../../../App";
+import { DataContext, CurrencyContext, RateContext } from "../../../App";
 
 type ProductData = {
     id: number;
@@ -28,7 +28,7 @@ export default function Product() {
         title: '',
         amount: 0
     });
-    // const [cart, setCart] = useContext(DataContext);
+    const [cart, setCart] = useContext(DataContext);
     const [currency, setCurrency] = useContext(CurrencyContext);
     const [alert, setAlert] = useState(false);
     const qtyRef = useRef<HTMLInputElement>(null);
@@ -45,26 +45,26 @@ export default function Product() {
         }
     };
 
-    // const addToCart = () => {
-    //     const index = cart.findIndex((element) => element.title === data.title)
-    //     if (index === -1) {
-    //         if (qtyRef.current.value === '') {
-    //             data.quantity = 1
-    //         } else {
-    //             data.quantity = Number(qtyRef.current.value)
-    //         }
-    //         setCart([...cart, data])
-    //     } else {
-    //         if (qtyRef.current.value === '') {
-    //             cart[index].quantity += 1
-    //             setCart([...cart])
-    //         } else {
-    //             cart[index].quantity += Number(qtyRef.current.value)
-    //             setCart([...cart])
-    //         }
-    //     }
-    //     setAlert(true)
-    // }
+    const addToCart = () => {
+        const index = cart.findIndex((element) => element.title === data.title)
+        if (index === -1) {
+            if (qtyRef.current && qtyRef.current.value === '') {
+                data.quantity = 1
+            } else if (qtyRef.current) {
+                data.quantity = Number(qtyRef.current.value)
+            }
+            setCart([...cart, data])
+        } else {
+            if (qtyRef.current && qtyRef.current.value === '') {
+                cart[index].quantity += 1
+                setCart([...cart])
+            } else if (qtyRef.current){
+                cart[index].quantity += Number(qtyRef.current.value)
+                setCart([...cart])
+            }
+        }
+        setAlert(true)
+    }
 
     const handleClose = () => {
         setAlert(false)
@@ -107,9 +107,9 @@ export default function Product() {
                                     Quantity:<br />
                                 </Typography>
                                 <QtySelector qtyRef={qtyRef} />
-                                {/* <IconButton aria-label="add to shopping cart">
+                                <IconButton aria-label="add to shopping cart">
                                     <AddShoppingCartIcon onClick={addToCart} />
-                                </IconButton> */}
+                                </IconButton>
                             </CardContent>
                         </Box>
                     </>

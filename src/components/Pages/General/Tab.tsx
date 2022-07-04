@@ -4,6 +4,8 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import PersonIcon from '@mui/icons-material/Person';
 import SearchIcon from '@mui/icons-material/Search';
 import { useNavigate, Link } from 'react-router-dom';
+import { ProductData } from '../../../App';
+
 // import { UserContext } from '../../../App';
 
 interface StyledTabsProps {
@@ -49,7 +51,7 @@ const StyledTab = styled((props:StyledTabProps) => <Link style={{ textDecoration
 },
 );
 
-export default function CustomizedTabs() { // { cart }
+export default function CustomizedTabs({ cart }:{ cart:ProductData[]}) {
     let navigate = useNavigate();
     const searchRef = useRef<HTMLInputElement>();
     const [value, setValue] = useState(0);
@@ -77,9 +79,9 @@ export default function CustomizedTabs() { // { cart }
         setValue(newValue);
     };
 
-    // let totalCart = 0
-    // const calTotalCart = () => cart.forEach(item => totalCart += item.quantity)
-    // calTotalCart()
+    let totalCart = 0
+    const calTotalCart = () => cart.forEach(item => totalCart += item.quantity)
+    calTotalCart()
 
     const setSearchHandler = () => {
         setSearch(true)
@@ -92,7 +94,7 @@ export default function CustomizedTabs() { // { cart }
     const handleClickAway = () => {
         setSearchValue(searchRef.current?searchRef.current.value:'')
         setSearch(false)
-        navigate(`/search/${searchValue ? searchValue : ''}`)
+        searchValue?navigate(`/search/${searchValue}`):console.log('pass')
     }
 
     const searchChangeHandler = () => {
@@ -133,13 +135,13 @@ export default function CustomizedTabs() { // { cart }
                                 <PersonIcon />
                             </IconButton>
                         </Link>} */}
-                    {/* <Link to="/cart">
+                    <Link to="/cart">
                         <IconButton>
                             <Badge badgeContent={totalCart} color="default">
                                 <ShoppingCartIcon />
                             </Badge>
                         </IconButton>
-                    </Link> */}
+                    </Link>
                 </Box>
                 <StyledTabs
                     value={value}
