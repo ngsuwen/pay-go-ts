@@ -4,9 +4,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import PersonIcon from '@mui/icons-material/Person';
 import SearchIcon from '@mui/icons-material/Search';
 import { useNavigate, Link } from 'react-router-dom';
-import { ProductData } from '../../../App';
-
-// import { UserContext } from '../../../App';
+import { ProductData, UserContext } from '../../../App';
 
 interface StyledTabsProps {
     children?: React.ReactNode;
@@ -57,14 +55,14 @@ export default function CustomizedTabs({ cart }:{ cart:ProductData[]}) {
     const [value, setValue] = useState(0);
     const [search, setSearch] = useState(false);
     const [searchValue, setSearchValue] = useState<string>();
-    // const [userId, setUserId] = useContext(UserContext);
-    const [anchorEl, setAnchorEl] = useState(null);
+    const [userId, setUserId] = useContext(UserContext);
+    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
     const open = Boolean(anchorEl);
 
-    // const handleClick = (event) => {
-    //     setAnchorEl(event.currentTarget);
-    // };
+    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+        setAnchorEl(event.currentTarget);
+    };
 
     const handleClose = () => {
         setAnchorEl(null);
@@ -72,7 +70,7 @@ export default function CustomizedTabs({ cart }:{ cart:ProductData[]}) {
 
     const handleCloseLogout = () => {
         setAnchorEl(null);
-        // setUserId(null)
+        setUserId('')
     };
 
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -120,7 +118,7 @@ export default function CustomizedTabs({ cart }:{ cart:ProductData[]}) {
                         <IconButton>
                             <SearchIcon onClick={setSearchHandler} />
                         </IconButton>}
-                    {/* {userId ?
+                    {userId!=='' ?
                         <>
                             <IconButton
                                 aria-controls="fade-menu"
@@ -134,7 +132,7 @@ export default function CustomizedTabs({ cart }:{ cart:ProductData[]}) {
                             <IconButton>
                                 <PersonIcon />
                             </IconButton>
-                        </Link>} */}
+                        </Link>}
                     <Link to="/cart">
                         <IconButton>
                             <Badge badgeContent={totalCart} color="default">
@@ -164,11 +162,11 @@ export default function CustomizedTabs({ cart }:{ cart:ProductData[]}) {
                 onClose={handleClose}
                 TransitionComponent={Fade}
             >
-                {/* {userId ?
+                {userId!=='' ?
                     <>
                         <Link to="/user" style={{ textDecoration: 'none', color: 'rgb(80,80,80)' }}><MenuItem onClick={handleClose}>My Account</MenuItem></Link>
                         <Link to="/login" style={{ textDecoration: 'none', color: 'rgb(80,80,80)' }}><MenuItem onClick={handleCloseLogout}>Logout</MenuItem></Link></> :
-                    ''} */}
+                    ''}
             </Menu>
         </Container>
     );

@@ -8,6 +8,9 @@ import Search from "./components/Pages/SearchResult/SearchResult";
 import Cart from "./components/Pages/CartPage/Cart";
 import Info from "./components/Pages/MiscPage/Info";
 import Error from "./components/Pages/MiscPage/Error";
+import Login from "./components/Pages/LoginPage/Login";
+import LoginError from "./components/Pages/LoginPage/LoginError";
+import UserDetails from "./components/Pages/UserPage/UserDetails";
 
 import { Route, Routes, Navigate } from "react-router-dom";
 // import Tab from "./components/Pages/General/Tab";
@@ -24,8 +27,7 @@ export type ProductData = {
   [key: string]: any;
 }
 
-// export const UserContext = createContext<null | String>(null);
-
+export const UserContext = createContext<[userId:string, setUserId:React.Dispatch<React.SetStateAction<string>>]>(null as any);
 export const DataContext = createContext<[cart:ProductData[], setCart:React.Dispatch<React.SetStateAction<ProductData[]>>]>(null as any);
 export const CurrencyContext = createContext<[currency:string, setCurrency:React.Dispatch<React.SetStateAction<string>>]>(null as any);
 export const RateContext = createContext<[rate:number, setRate:React.Dispatch<React.SetStateAction<number>>]>(null as any);
@@ -36,11 +38,11 @@ function App() {
   const [sort, setSort] = useState<string>('price');
   const [rate, setRate] = useState<number>(1);
   const [cart, setCart] = useState<ProductData[]>([]);
-  // const [userId, setUserId] = useState(null);
+  const [userId, setUserId] = useState<string>('');
 
   return (
     <>
-      {/* <UserContext.Provider value={[userId, setUserId]}> */}
+      <UserContext.Provider value={[userId, setUserId]}>
       <nav>
         <Header/>
         <CustomizedTabs cart={cart}/>
@@ -55,9 +57,9 @@ function App() {
         <Route path='/category/:category' element={<Category />} />
         <Route path='/category/:category/:id' element={<Product />} />
         <Route path='/cart' element={<Cart />} />
-        {/* <Route path='/login' element={<Login />} />
+        <Route path='/login' element={<Login />} />
         <Route path='/login-invalid' element={<LoginError />} />
-        <Route path='/user' element={<UserDetails />} /> */}
+        <Route path='/user' element={<UserDetails />} />
         <Route path='/info' element={<Info />} />
         <Route path='/search/:term' element={<Search />} />
         <Route path='/error' element={<Error />} />
@@ -68,7 +70,7 @@ function App() {
       </CurrencyContext.Provider>
       </DataContext.Provider>
       </main>
-      {/* </UserContext.Provider> */}
+      </UserContext.Provider>
       <Footer/>
     </>
   );
