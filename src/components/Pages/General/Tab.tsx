@@ -3,7 +3,7 @@ import { SelectChangeEvent, styled, Tabs, Tab, Box, Container, ClickAwayListener
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import PersonIcon from '@mui/icons-material/Person';
 import SearchIcon from '@mui/icons-material/Search';
-import { Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 // import { UserContext } from '../../../App';
 
 interface StyledTabsProps {
@@ -50,10 +50,11 @@ const StyledTab = styled((props:StyledTabProps) => <Link style={{ textDecoration
 );
 
 export default function CustomizedTabs() { // { cart }
-    const searchRef = useRef();
+    let navigate = useNavigate();
+    const searchRef = useRef<HTMLInputElement>();
     const [value, setValue] = useState(0);
     const [search, setSearch] = useState(false);
-    const [searchValue, setSearchValue] = useState(false);
+    const [searchValue, setSearchValue] = useState<string>();
     // const [userId, setUserId] = useContext(UserContext);
     const [anchorEl, setAnchorEl] = useState(null);
 
@@ -89,18 +90,20 @@ export default function CustomizedTabs() { // { cart }
     }
 
     const handleClickAway = () => {
+        setSearchValue(searchRef.current?searchRef.current.value:'')
         setSearch(false)
+        navigate(`/search/${searchValue ? searchValue : ''}`)
     }
 
-    // const searchChangeHandler = () => {
-    //     setSearchValue(searchRef.current.value)
-    // }
+    const searchChangeHandler = () => {
+        setSearchValue(searchRef.current?searchRef.current.value:'')
+    }
 
     return (
         <Container maxWidth='lg'>
             <Box sx={{ marginBottom: 5 }}>
                 <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-                    {/* {search ?
+                    {search ?
                         <>
                             <Link to={`/search/${searchValue ? searchValue : ''}`}>
                                 <IconButton>
@@ -114,7 +117,7 @@ export default function CustomizedTabs() { // { cart }
                         :
                         <IconButton>
                             <SearchIcon onClick={setSearchHandler} />
-                        </IconButton>} */}
+                        </IconButton>}
                     {/* {userId ?
                         <>
                             <IconButton

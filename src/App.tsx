@@ -4,6 +4,7 @@ import Header from "./components/Pages/General/Header";
 import CustomizedTabs from "./components/Pages/General/Tab";
 import Category from "./components/Pages/CategoryPage/Category";
 import Product from "./components/Pages/ProductPage/Product";
+import Search from "./components/Pages/SearchResult/SearchResult";
 
 import { Route, Routes, Navigate } from "react-router-dom";
 // import Tab from "./components/Pages/General/Tab";
@@ -44,9 +45,9 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/login-invalid' element={<LoginError />} />
         <Route path='/user' element={<UserDetails />} />
-        <Route path='/info' element={<Info />} />
+        <Route path='/info' element={<Info />} /> */}
         <Route path='/search/:term' element={<Search />} />
-        <Route path='/error' element={<Error />} />
+        {/* <Route path='/error' element={<Error />} />
         <Route path='/*' element={<Navigate to='/error' />} /> */}
       </Routes>
       </RateContext.Provider>
