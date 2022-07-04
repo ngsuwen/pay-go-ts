@@ -3,6 +3,7 @@ import Footer from "./components/Pages/General/Footer";
 import Header from "./components/Pages/General/Header";
 import CustomizedTabs from "./components/Pages/General/Tab";
 import Category from "./components/Pages/CategoryPage/Category";
+import Product from "./components/Pages/ProductPage/Product";
 
 import { Route, Routes, Navigate } from "react-router-dom";
 // import Tab from "./components/Pages/General/Tab";
@@ -38,8 +39,8 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/category/:category' element={<Category />} />
-        {/* <Route path='/category/:category/:id' element={<Product />} />
-        <Route path='/cart' element={<Cart />} />
+        <Route path='/category/:category/:id' element={<Product />} />
+        {/* <Route path='/cart' element={<Cart />} />
         <Route path='/login' element={<Login />} />
         <Route path='/login-invalid' element={<LoginError />} />
         <Route path='/user' element={<UserDetails />} />

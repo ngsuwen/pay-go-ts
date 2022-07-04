@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { Card, CardContent, CardMedia, CardActionArea, Typography, Box } from '@mui/material';
-// import { Link } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { CurrencyContext, RateContext } from "../App";
 
 type ProductData = {
@@ -18,7 +18,7 @@ export default function ProductCard({ data }:{ data: ProductData}) {
     const [rate, setRate] = useContext(RateContext);
 
     return (
-        // <Link style={{textDecoration:'none'}} to={`/category/${data.category}/${data.id}`}>
+        <Link style={{textDecoration:'none'}} to={`/category/${data.category}/${data.id}`}>
             <Card style={{
                 width: 220,
                 minHeight: 330,
@@ -62,6 +62,6 @@ export default function ProductCard({ data }:{ data: ProductData}) {
                     </CardContent>
                 </CardActionArea>
             </Card>
-        // </Link>
+        </Link>
     );
 };
