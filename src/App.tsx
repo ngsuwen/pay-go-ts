@@ -6,6 +6,8 @@ import Category from "./components/Pages/CategoryPage/Category";
 import Product from "./components/Pages/ProductPage/Product";
 import Search from "./components/Pages/SearchResult/SearchResult";
 import Cart from "./components/Pages/CartPage/Cart";
+import Info from "./components/Pages/MiscPage/Info";
+import Error from "./components/Pages/MiscPage/Error";
 
 import { Route, Routes, Navigate } from "react-router-dom";
 // import Tab from "./components/Pages/General/Tab";
@@ -55,11 +57,11 @@ function App() {
         <Route path='/cart' element={<Cart />} />
         {/* <Route path='/login' element={<Login />} />
         <Route path='/login-invalid' element={<LoginError />} />
-        <Route path='/user' element={<UserDetails />} />
-        <Route path='/info' element={<Info />} /> */}
+        <Route path='/user' element={<UserDetails />} /> */}
+        <Route path='/info' element={<Info />} />
         <Route path='/search/:term' element={<Search />} />
-        {/* <Route path='/error' element={<Error />} />
-        <Route path='/*' element={<Navigate to='/error' />} /> */}
+        <Route path='/error' element={<Error />} />
+        <Route path='/*' element={<Navigate to='/error' />} />
       </Routes>
       </RateContext.Provider>
       </SortContext.Provider>

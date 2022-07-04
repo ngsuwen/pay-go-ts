@@ -1,0 +1,25 @@
+import React from 'react';
+import { Container, Box, Typography, Divider } from '@mui/material';
+
+export default function Info(){
+    return(
+        <Container maxWidth='lg'>
+            <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                <Typography sx={{ padding: 1 }} variant="h6" fontWeight='bold'>Lorem Ipsum</Typography>
+                <Divider/>
+                <Typography sx={{ padding: 1, textAlign:'justify' }} variant="body2" color="text.secondary">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna neque viverra justo nec ultrices. Scelerisque eu ultrices vitae auctor eu augue. Vulputate sapien nec sagittis aliquam. Sit amet mauris commodo quis imperdiet massa tincidunt. Est lorem ipsum dolor sit amet consectetur. Aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque. Viverra orci sagittis eu volutpat. Sed viverra tellus in hac habitasse platea dictumst vestibulum rhoncus. Condimentum id venenatis a condimentum vitae sapien pellentesque. Sapien eget mi proin sed libero enim sed faucibus. Quam vulputate dignissim suspendisse in est ante in. In ante metus dictum at tempor commodo ullamcorper a lacus. Odio euismod lacinia at quis risus sed vulputate odio. Cras fermentum odio eu feugiat pretium nibh ipsum. Commodo sed egestas egestas fringilla phasellus faucibus scelerisque eleifend donec.</p>
+                    <p>Tristique senectus et netus et malesuada. Mauris pellentesque pulvinar pellentesque habitant. Metus dictum at tempor commodo ullamcorper a lacus. Dui accumsan sit amet nulla facilisi morbi tempus iaculis urna. Eleifend mi in nulla posuere sollicitudin. Eu tincidunt tortor aliquam nulla facilisi. Sed risus pretium quam vulputate. Amet massa vitae tortor condimentum lacinia quis vel eros donec. Bibendum est ultricies integer quis auctor elit. Ornare quam viverra orci sagittis eu volutpat. Faucibus pulvinar elementum integer enim neque volutpat. A condimentum vitae sapien pellentesque habitant. Lacus sed viverra tellus in hac. Ut etiam sit amet nisl purus in mollis nunc. Luctus venenatis lectus magna fringilla. Cursus metus aliquam eleifend mi in nulla posuere sollicitudin aliquam. In hac habitasse platea dictumst. Amet venenatis urna cursus eget nunc scelerisque viverra. Lectus arcu bibendum at varius vel pharetra. Mauris in aliquam sem fringilla ut morbi tincidunt.</p>
+                </Typography>
+            </Box>
+            <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                <Typography sx={{ padding: 1 }} variant="h6" fontWeight='bold'>Lorem Ipsum</Typography>
+                <Divider/>
+                <Typography sx={{ padding: 1, textAlign:'justify', marginBottom:3 }} variant="body2" color="text.secondary">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna neque viverra justo nec ultrices. Scelerisque eu ultrices vitae auctor eu augue. Vulputate sapien nec sagittis aliquam. Sit amet mauris commodo quis imperdiet massa tincidunt. Est lorem ipsum dolor sit amet consectetur. Aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque. Viverra orci sagittis eu volutpat. Sed viverra tellus in hac habitasse platea dictumst vestibulum rhoncus. Condimentum id venenatis a condimentum vitae sapien pellentesque. Sapien eget mi proin sed libero enim sed faucibus. Quam vulputate dignissim suspendisse in est ante in. In ante metus dictum at tempor commodo ullamcorper a lacus. Odio euismod lacinia at quis risus sed vulputate odio. Cras fermentum odio eu feugiat pretium nibh ipsum. Commodo sed egestas egestas fringilla phasellus faucibus scelerisque eleifend donec.</p>
+                    <p>Tristique senectus et netus et malesuada. Mauris pellentesque pulvinar pellentesque habitant. Metus dictum at tempor commodo ullamcorper a lacus. Dui accumsan sit amet nulla facilisi morbi tempus iaculis urna. Eleifend mi in nulla posuere sollicitudin. Eu tincidunt tortor aliquam nulla facilisi. Sed risus pretium quam vulputate. Amet massa vitae tortor condimentum lacinia quis vel eros donec. Bibendum est ultricies integer quis auctor elit. Ornare quam viverra orci sagittis eu volutpat. Faucibus pulvinar elementum integer enim neque volutpat. A condimentum vitae sapien pellentesque habitant. Lacus sed viverra tellus in hac. Ut etiam sit amet nisl purus in mollis nunc. Luctus venenatis lectus magna fringilla. Cursus metus aliquam eleifend mi in nulla posuere sollicitudin aliquam. In hac habitasse platea dictumst. Amet venenatis urna cursus eget nunc scelerisque viverra. Lectus arcu bibendum at varius vel pharetra. Mauris in aliquam sem fringilla ut morbi tincidunt.</p>
+                </Typography>
+            </Box>
+        </Container>
+    )
+}

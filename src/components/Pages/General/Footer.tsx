@@ -1,7 +1,7 @@
 import { Typography, TableContainer, Table, TableRow, TableCell } from '@mui/material';
 import { Link } from 'react-router-dom'
 
-function createData(text:String, link:String, text2:String, link2:String) {
+function createData(text:String, link:string, text2:String, link2:string) {
   return { text, link, text2, link2 };
 }
 
@@ -25,8 +25,8 @@ export default function Footer() {
 
               {rows.map((row) => (
                 <TableRow>
-                  <TableCell sx={{ padding: '0.5em', border: 'none', textAlign: 'left' }} >{row.text}</TableCell> {/*<Link style={{textDecoration:'none', color:'#757575'}} to={row.link}>{row.text}</Link> */}
-                  <TableCell sx={{ padding: '0.5em', border: 'none', textAlign: 'left' }} >{row.text2}</TableCell> {/*<Link style={{textDecoration:'none', color:'#757575'}} to={row.link2}>{row.text2}</Link> */}
+                  <TableCell sx={{ padding: '0.5em', border: 'none', textAlign: 'left' }} ><Link style={{textDecoration:'none', color:'#757575'}} to={row.link}>{row.text}</Link></TableCell> 
+                  <TableCell sx={{ padding: '0.5em', border: 'none', textAlign: 'left' }} ><Link style={{textDecoration:'none', color:'#757575'}} to={row.link2}>{row.text2}</Link></TableCell> 
                 </TableRow>
               ))}
 
