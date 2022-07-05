@@ -13,7 +13,6 @@ import LoginError from "./components/Pages/LoginPage/LoginError";
 import UserDetails from "./components/Pages/UserPage/UserDetails";
 
 import { Route, Routes, Navigate } from "react-router-dom";
-// import Tab from "./components/Pages/General/Tab";
 import { createContext, useState } from 'react';
 
 export type ProductData = {

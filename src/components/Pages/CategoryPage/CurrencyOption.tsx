@@ -19,6 +19,8 @@ export default function CurrencyOption() {
     const [rate, setRate] = useContext(RateContext)
     const [currency, setCurrency]=useContext(CurrencyContext);
     
+    console.log(rate)
+
     async function handleChange(event: SelectChangeEvent){
         setCurrency(event.target.value);
         // assuming currencies have <=4 letters

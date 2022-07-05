@@ -1,19 +1,19 @@
-import React, { useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import { Box, List, Container, ListItem, Typography, Button, Grid, Divider, Dialog, DialogContent, DialogContentText, DialogActions } from '@mui/material';
 import CartItem from './CartItem';
 import { DataContext, CurrencyContext, RateContext } from '../../../App'
 
 
 export default function Cart() {
-    const [open, setOpen] = useState(false)
+    const [open, setOpen] = useState<boolean>(false);
     const [cart, setCart] = useContext(DataContext);
-    const [rate, setRate] = useContext(RateContext);
-    const [currency, setCurrency] = useContext(CurrencyContext);
+    const [rate] = useContext(RateContext);
+    const [currency] = useContext(CurrencyContext);
 
     const cartItemList = cart.map((item, index) =>
         <CartItem data={item} key={index} />)
 
-    let totalCost = 0
+    let totalCost:number = 0
     const calTotalCost = () => cart.forEach(item => totalCost += item.quantity * item.price * (rate ? rate : 1))
     calTotalCost()
 

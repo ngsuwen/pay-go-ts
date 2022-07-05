@@ -1,26 +1,21 @@
 import { useState, useEffect } from "react";
 import { Grid, Container, CircularProgress } from '@mui/material';
 import ProductCard from "../../ProductCard";
+import { ProductData } from "../../../App";
 
-export default function Products({ category }:{ category:string; }) {
-    const [data, setData] = useState([]);
+export default function Products() {
+    const [data, setData] = useState<ProductData[]>([]);
     const products = data.map((element) => <Grid item><ProductCard data={element} /></Grid>)
-
-    const fetchData = async () => {
-        try {
-            const response = await fetch(`https://fakestoreapi.com/products/category/${category}`);
-            const data = await response.json();
-            console.log(data);
-            return data;
-        } catch (err) {
-            console.log(err);
-        }
-    };
 
     useEffect(() => {
         const getData = async () => {
-            const response = await fetchData();
-            setData(response);
+            try {
+                const response = await fetch(`https://fakestoreapi.com/products/category/men's%20clothing`);
+                const data = await response.json();
+                setData(data);
+            } catch (err) {
+                console.log(err);
+            }
         };
         getData();
     }, []);

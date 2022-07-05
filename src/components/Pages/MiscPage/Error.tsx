@@ -1,5 +1,4 @@
-import React from 'react';
-import { Container, Box, Typography, Divider } from '@mui/material';
+import { Container, Box, Typography } from '@mui/material';
 
 export default function Error(){
     return(

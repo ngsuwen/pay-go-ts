@@ -1,16 +1,15 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { ListItem, ListItemAvatar, ListItemText, Typography, IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { DataContext, CurrencyContext , RateContext } from '../../../App';
-import { ProductData } from '../../../App';
+import { ProductData, DataContext, CurrencyContext , RateContext } from '../../../App';
 
 export default function CartItem({ data }:{data: ProductData}) {
     const [cart, setCart] = useContext(DataContext);
-    const [rate, setRate] = useContext(RateContext);
-    const [currency, setCurrency] = useContext(CurrencyContext);
+    const [rate] = useContext(RateContext);
+    const [currency] = useContext(CurrencyContext);
 
     const deleteHandler=()=>{
-        const filteredCart = cart.filter((list)=>list!=data)
+        const filteredCart = cart.filter((list)=>list!==data)
         setCart(filteredCart)
     }
 

@@ -12,7 +12,7 @@ const Heading = styled('div')(({ theme }) => ({
 }));
 
 export default function Home() {
-    const [width, setWindowWidth] = useState(0);
+    const [width, setWindowWidth] = useState<number>(0);
 
     useEffect(() => {
         updateDimensions();
@@ -32,11 +32,11 @@ export default function Home() {
             <Box sx={{ margin: 5, display: 'flex', justifyContent: 'center' }}>
                 <Heading>{"New Products"}</Heading>
             </Box>
-            <Products category="men's%20clothing" />
+            <Products />
             <Box sx={{ margin: 5, display: 'flex', justifyContent: 'center' }}>
                 <Heading>{"Top Selling"}</Heading>
             </Box>
-            <Products category="men's%20clothing" />
+            <Products />
         </>
     );
 }

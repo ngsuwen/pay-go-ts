@@ -20,6 +20,6 @@ export async function loginAuth(user:string, password:string) {
     console.log(user)
     return [data.token, user]
   } catch (err) {
-    return [err, 'error']
+    return [null, 'error']
   }
 }

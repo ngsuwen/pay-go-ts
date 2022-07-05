@@ -1,4 +1,4 @@
-import React, { useState, useRef, useContext } from 'react';
+import { useState, useRef, useContext } from 'react';
 import { Button, TextField, Typography, Box, FormControl, InputLabel, OutlinedInput, InputAdornment, IconButton } from '@mui/material';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
@@ -6,14 +6,14 @@ import { loginAuth } from './LoginAuth'
 import { UserContext } from '../../../App';
 import { useNavigate } from 'react-router-dom';
 
-export default function LoginError() {
+export default function Login() {
     let navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
     const userLogin = useRef<HTMLInputElement>();
     const userPassword = useRef<HTMLInputElement>();
     const [userId, setUserId] = useContext(UserContext)
 
-    // console.log(userId)
+    console.log(userId)
 
     const handleClickShowPassword = () => {
         setShowPassword(showPassword ? false : true)
@@ -25,24 +25,26 @@ export default function LoginError() {
             checkUserAuth = await loginAuth(userLogin.current.value, userPassword.current.value)
         }
         if (checkUserAuth){
-            const token = checkUserAuth[0]
-            setUserId(token?checkUserAuth[1] : null)
+            const token:string = checkUserAuth[0]
+            setUserId(token?checkUserAuth[1] : '')
             navigate(token?'/user':'/login-invalid')
         }
     }
 
     return (
         <Box sx={{ minHeight: '62vh', display: 'flex', justifyContent: 'center', flexDirection: 'column' }}>
-            <Box sx={{ display: 'flex', justifyContent: 'center', marginBottom: 2 }}>
+            <Box sx={{ display: 'flex', justifyContent: 'center', margin: 3 }}>
                 <Typography variant="h5" color="#757575">
                     Login
                 </Typography>
             </Box>
+
             <Box sx={{ display: 'flex', justifyContent: 'center', marginBottom: 3 }}>
                 <Typography variant="body1" color="#C41E3A">
                     *Invalid User Login
                 </Typography>
             </Box>
+
             <Box sx={{ display: 'flex', justifyContent: 'center' }}>
                 <TextField sx={{ width: 500 }} label="User Login" variant="outlined" inputRef={userLogin} />
             </Box>

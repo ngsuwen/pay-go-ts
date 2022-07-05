@@ -5,22 +5,11 @@ import Product from '../../ProductCard';
 import SortOption from '../CategoryPage/SortOption';
 import CurrencyOption from '../CategoryPage/CurrencyOption';
 import { sortFunction } from '../CategoryPage/sortFunction'
-import { CurrencyContext, SortContext } from "../../../App";
-
-type ProductData = {
-    id: number;
-    category: string;
-    description: string;
-    image: string;
-    price: number;
-    title: string;
-    amount: number;
-    [key: string]: any;
-}
+import { ProductData, CurrencyContext, SortContext } from "../../../App";
 
 export default function Search() {
-    const [currency, setCurrency] = useContext(CurrencyContext);
-    const [sort, setSort]=useContext(SortContext)
+    const [currency] = useContext(CurrencyContext);
+    const [sort]=useContext(SortContext)
     const params = useParams();
     const [data, setData] = useState([]);
 

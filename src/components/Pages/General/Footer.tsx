@@ -1,7 +1,7 @@
 import { Typography, TableContainer, Table, TableRow, TableCell } from '@mui/material';
 import { Link } from 'react-router-dom'
 
-function createData(text:String, link:string, text2:String, link2:string) {
+function createData(text:string, link:string, text2:string, link2:string) {
   return { text, link, text2, link2 };
 }
 

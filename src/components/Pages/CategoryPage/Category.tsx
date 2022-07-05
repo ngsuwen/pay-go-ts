@@ -1,40 +1,33 @@
-import React, { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useParams } from 'react-router-dom'
 import { Grid, Container, Box, CircularProgress } from '@mui/material';
 import Product from '../../ProductCard';
 import SortOption from './SortOption';
 import CurrencyOption from './CurrencyOption';
 import { sortFunction } from './sortFunction';
-import { SortContext, CurrencyContext } from "../../../App";
+import { ProductData, SortContext, CurrencyContext } from "../../../App";
 
 export default function Category() {
-    const [sort, setSort]=useContext(SortContext);
-    const [currency, setCurrency]=useContext(CurrencyContext);
+    const [sort]=useContext(SortContext);
+    const [currency]=useContext(CurrencyContext);
     const params = useParams();
+    const [data, setData] = useState<ProductData[]>([]);
 
-    const [data, setData] = useState([]);
     const products = data.map((element) => <Grid item><Product data={element} /></Grid>)
-
-    const fetchData = async () => {
-        try {
-            const response = await fetch(`https://fakestoreapi.com/products/category/${params.category}`);
-            // const response = await fetch(`https://fakestoreapi.com/products/category/jewelery`);
-            const data = await response.json();
-            // console.log(data);
-            return data;
-        } catch (err) {
-            console.log(err);
-        }
-    };
 
     useEffect(() => {
         const getData = async () => {
             setData([])
-            const response = await fetchData();
-            console.log(sort)
-            sortFunction(response, sort)
+            try {
+            const response = await fetch(`https://fakestoreapi.com/products/category/${params.category}`);
+            const data = await response.json();
+            sortFunction(data, sort)
             // console.log(response)
-            setData(response);
+            setData(data);
+            } catch (err) {
+                console.log(err);
+            }
+            // console.log(sort)
         };
         getData();
     }, [params.category, sort, currency]);

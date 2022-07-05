@@ -1,21 +1,10 @@
-import React, { useState, useEffect, useContext, useRef } from "react";
+import { useState, useEffect, useContext, useRef } from "react";
 import { useParams } from 'react-router-dom'
 import { Alert, Snackbar, IconButton, Box, Container, Card, CardContent, Typography, CircularProgress } from '@mui/material';
 import QtySelector from "./QtySelector";
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import ImageZoom from "./ImageZoom";
-import { DataContext, CurrencyContext, RateContext } from "../../../App";
-
-type ProductData = {
-    id: number;
-    category: string;
-    description: string;
-    image: string;
-    price: number;
-    title: string;
-    amount: number;
-    [key: string]: any;
-}
+import { ProductData, DataContext, CurrencyContext, RateContext } from "../../../App";
 
 export default function Product() {
     const params = useParams();
@@ -29,10 +18,10 @@ export default function Product() {
         amount: 0
     });
     const [cart, setCart] = useContext(DataContext);
-    const [currency, setCurrency] = useContext(CurrencyContext);
+    const [currency] = useContext(CurrencyContext);
     const [alert, setAlert] = useState(false);
     const qtyRef = useRef<HTMLInputElement>(null);
-    const [rate, setRate] = useContext(RateContext);
+    const [rate] = useContext(RateContext);
 
     const fetchData = async () => {
         try {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Grid, Divider, Container, Box, Typography, CircularProgress } from '@mui/material';
 import { UserContext } from "../../../App";
 
@@ -23,7 +23,7 @@ type UserData = {
 
 export default function UserDetails() {
     const [data, setData] = useState<UserData | null>(null)
-    const [userId, setUserId] = useContext(UserContext)
+    const [userId] = useContext(UserContext)
 
     const fetchData = async () => {
         try {

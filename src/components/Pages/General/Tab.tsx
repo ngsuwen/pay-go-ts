@@ -1,5 +1,5 @@
 import React, { useState, useRef, useContext } from 'react';
-import { SelectChangeEvent, styled, Tabs, Tab, Box, Container, ClickAwayListener, IconButton, Input, Badge, Menu, MenuItem, Fade } from '@mui/material';
+import { styled, Tabs, Tab, Box, Container, ClickAwayListener, IconButton, Input, Badge, Menu, MenuItem, Fade } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import PersonIcon from '@mui/icons-material/Person';
 import SearchIcon from '@mui/icons-material/Search';
@@ -52,8 +52,8 @@ const StyledTab = styled((props:StyledTabProps) => <Link style={{ textDecoration
 export default function CustomizedTabs({ cart }:{ cart:ProductData[]}) {
     let navigate = useNavigate();
     const searchRef = useRef<HTMLInputElement>();
-    const [value, setValue] = useState(0);
-    const [search, setSearch] = useState(false);
+    const [value, setValue] = useState<number>(0);
+    const [search, setSearch] = useState<boolean>(false);
     const [searchValue, setSearchValue] = useState<string>();
     const [userId, setUserId] = useContext(UserContext);
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -77,7 +77,7 @@ export default function CustomizedTabs({ cart }:{ cart:ProductData[]}) {
         setValue(newValue);
     };
 
-    let totalCart = 0
+    let totalCart:number = 0
     const calTotalCart = () => cart.forEach(item => totalCart += item.quantity)
     calTotalCart()
 

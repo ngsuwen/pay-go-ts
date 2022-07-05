@@ -1,4 +1,4 @@
-import React, { useState, useRef, useContext } from 'react';
+import { useState, useRef, useContext } from 'react';
 import { Button, TextField, Typography, Box, FormControl, InputLabel, OutlinedInput, InputAdornment, IconButton } from '@mui/material';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
@@ -13,7 +13,7 @@ export default function Login() {
     const userPassword = useRef<HTMLInputElement>();
     const [userId, setUserId] = useContext(UserContext)
 
-    // console.log(userId)
+    console.log(userId)
 
     const handleClickShowPassword = () => {
         setShowPassword(showPassword ? false : true)
@@ -25,8 +25,8 @@ export default function Login() {
             checkUserAuth = await loginAuth(userLogin.current.value, userPassword.current.value)
         }
         if (checkUserAuth){
-            const token = checkUserAuth[0]
-            setUserId(token?checkUserAuth[1] : null)
+            const token:string = checkUserAuth[0]
+            setUserId(token?checkUserAuth[1] : '')
             navigate(token?'/user':'/login-invalid')
         }
     }

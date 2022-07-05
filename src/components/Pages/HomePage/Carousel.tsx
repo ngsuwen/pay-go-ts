@@ -1,7 +1,7 @@
 import React from 'react';
 import Carousel from 'react-material-ui-carousel';
 import { Box, Card, CardContent, CardMedia, Typography, Grid, Button, Container } from '@mui/material';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 type CarouselData = {
     image: string;
@@ -61,7 +61,7 @@ const ViewMore = ({ data }:{ data:CarouselData }) => {
                 <Typography variant="subtitle1" color="text.secondary">
                     {data.description}
                 </Typography>
-                {/* <Link style={{textDecoration:'none'}} to={`/category/${data.link}`}> */}
+                <Link style={{textDecoration:'none'}} to={`/category/${data.link}`}>
                 <Button sx={{
                     bgcolor: '#e0e0e0',
                     color: 'black',
@@ -76,7 +76,7 @@ const ViewMore = ({ data }:{ data:CarouselData }) => {
                     variant="outlined">
                     Shop Now
                 </Button>
-                {/* </Link> */}
+                </Link>
             </CardContent>
         </Grid>
     )
