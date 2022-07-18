@@ -1,4 +1,4 @@
-import { ProductData } from "../../../App";
+import { ProductData } from "../../ProductCard";
 
 export function sortFunction(array:ProductData[], key:any) {
     function sortByKey(a: ProductData, b: ProductData) {

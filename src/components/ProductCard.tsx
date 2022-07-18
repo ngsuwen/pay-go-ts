@@ -1,8 +1,19 @@
 import { useContext } from "react";
 import { Card, CardContent, CardMedia, CardActionArea, Typography, Box } from '@mui/material';
 import { Link } from "react-router-dom"
-import { ProductData, CurrencyContext, RateContext } from "../App";
+import { CurrencyContext, RateContext } from "../App";
 
+export type ProductData = {
+    id: number;
+    category: string;
+    description: string;
+    image: string;
+    price: number;
+    title: string;
+    amount: number;
+    [key: string]: any;
+  }
+  
 export default function ProductCard({ data }:{ data: ProductData}) {
     const [currency] = useContext(CurrencyContext);
     const [rate] = useContext(RateContext);

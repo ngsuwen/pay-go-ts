@@ -11,20 +11,9 @@ import Error from "./components/Pages/MiscPage/Error";
 import Login from "./components/Pages/LoginPage/Login";
 import LoginError from "./components/Pages/LoginPage/LoginError";
 import UserDetails from "./components/Pages/UserPage/UserDetails";
-
+import { ProductData } from "./components/ProductCard";
 import { Route, Routes, Navigate } from "react-router-dom";
 import { createContext, useState } from 'react';
-
-export type ProductData = {
-  id: number;
-  category: string;
-  description: string;
-  image: string;
-  price: number;
-  title: string;
-  amount: number;
-  [key: string]: any;
-}
 
 export const UserContext = createContext<[userId:string, setUserId:React.Dispatch<React.SetStateAction<string>>]>(null as any);
 export const DataContext = createContext<[cart:ProductData[], setCart:React.Dispatch<React.SetStateAction<ProductData[]>>]>(null as any);

@@ -5,7 +5,8 @@ import Product from '../../ProductCard';
 import SortOption from './SortOption';
 import CurrencyOption from './CurrencyOption';
 import { sortFunction } from './sortFunction';
-import { ProductData, SortContext, CurrencyContext } from "../../../App";
+import { SortContext, CurrencyContext } from "../../../App";
+import { ProductData } from "../../ProductCard";
 
 export default function Category() {
     const [sort]=useContext(SortContext);

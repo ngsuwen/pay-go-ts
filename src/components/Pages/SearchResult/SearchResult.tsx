@@ -5,7 +5,8 @@ import Product from '../../ProductCard';
 import SortOption from '../CategoryPage/SortOption';
 import CurrencyOption from '../CategoryPage/CurrencyOption';
 import { sortFunction } from '../CategoryPage/sortFunction'
-import { ProductData, CurrencyContext, SortContext } from "../../../App";
+import { CurrencyContext, SortContext } from "../../../App";
+import { ProductData } from "../../ProductCard";
 
 export default function Search() {
     const [currency] = useContext(CurrencyContext);

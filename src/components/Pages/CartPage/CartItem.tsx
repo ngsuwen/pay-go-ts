@@ -1,7 +1,8 @@
 import { useContext } from 'react';
 import { ListItem, ListItemAvatar, ListItemText, Typography, IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { ProductData, DataContext, CurrencyContext , RateContext } from '../../../App';
+import { DataContext, CurrencyContext , RateContext } from '../../../App';
+import { ProductData } from "../../ProductCard";
 
 export default function CartItem({ data }:{data: ProductData}) {
     const [cart, setCart] = useContext(DataContext);

@@ -4,7 +4,8 @@ import { Alert, Snackbar, IconButton, Box, Container, Card, CardContent, Typogra
 import QtySelector from "./QtySelector";
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import ImageZoom from "./ImageZoom";
-import { ProductData, DataContext, CurrencyContext, RateContext } from "../../../App";
+import { DataContext, CurrencyContext, RateContext } from "../../../App";
+import { ProductData } from "../../ProductCard";
 
 export default function Product() {
     const params = useParams();

@@ -4,7 +4,8 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import PersonIcon from '@mui/icons-material/Person';
 import SearchIcon from '@mui/icons-material/Search';
 import { useNavigate, Link } from 'react-router-dom';
-import { ProductData, UserContext } from '../../../App';
+import { UserContext } from '../../../App';
+import { ProductData } from "../../ProductCard";
 
 interface StyledTabsProps {
     children?: React.ReactNode;
