@@ -5,12 +5,13 @@ import Product from '../../ProductCard';
 import SortOption from './SortOption';
 import CurrencyOption from './CurrencyOption';
 import { sortFunction } from './sortFunction';
-import { SortContext, CurrencyContext } from "../../../App";
+import { SortContext } from "../../../App";
+import { GlobalContext } from "../../../globalContext";
 import { ProductData } from "../../ProductCard";
 
 export default function Category() {
     const [sort]=useContext(SortContext);
-    const [currency]=useContext(CurrencyContext);
+    const context=useContext(GlobalContext);
     const params = useParams();
     const [data, setData] = useState<ProductData[]>([]);
 
@@ -31,7 +32,7 @@ export default function Category() {
             // console.log(sort)
         };
         getData();
-    }, [params.category, sort, currency]);
+    }, [params.category, sort, context.currency]);
 
     return (
         <Container maxWidth='lg' sx={{ minHeight: '62vh' }}>

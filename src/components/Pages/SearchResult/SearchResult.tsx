@@ -5,11 +5,12 @@ import Product from '../../ProductCard';
 import SortOption from '../CategoryPage/SortOption';
 import CurrencyOption from '../CategoryPage/CurrencyOption';
 import { sortFunction } from '../CategoryPage/sortFunction'
-import { CurrencyContext, SortContext } from "../../../App";
+import { SortContext } from "../../../App";
+import { GlobalContext } from "../../../globalContext";
 import { ProductData } from "../../ProductCard";
 
 export default function Search() {
-    const [currency] = useContext(CurrencyContext);
+    const context = useContext(GlobalContext);
     const [sort]=useContext(SortContext)
     const params = useParams();
     const [data, setData] = useState([]);
@@ -38,7 +39,7 @@ export default function Search() {
             setData(response);
         };
         getData();
-    }, [params.term, sort, currency]);
+    }, [params.term, sort, context.currency]);
 
     return (
         <Container maxWidth='lg' sx={{minHeight:'62vh'}}>

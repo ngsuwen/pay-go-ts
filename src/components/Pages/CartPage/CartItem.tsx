@@ -1,14 +1,13 @@
 import { useContext } from 'react';
 import { ListItem, ListItemAvatar, ListItemText, Typography, IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { CurrencyContext , RateContext } from '../../../App';
+import { RateContext } from '../../../App';
 import { GlobalContext } from '../../../globalContext';
 import { ProductData } from "../../ProductCard";
 
 export default function CartItem({ data }:{data: ProductData}) {
     const context = useContext(GlobalContext);
     const [rate] = useContext(RateContext);
-    const [currency] = useContext(CurrencyContext);
 
     const deleteHandler=()=>{
         const filteredCart = context.cart.filter((list)=>list!==data)
@@ -23,7 +22,7 @@ export default function CartItem({ data }:{data: ProductData}) {
                 </ListItemAvatar>
                 <ListItemText sx={{ paddingLeft: '7%', minWidth:'300px', flex:'0 600px' }} primary={data.title} />
                 <Typography sx={{ paddingLeft: '7%', minWidth:'25px', flex:'0 100px' }} color="text.secondary">{data.quantity}</Typography>
-                <Typography sx={{ paddingLeft: '2%', minWidth:'125px' }} color="text.secondary">{currency?currency.toUpperCase():'USD $'}{rate?Number(data.price*rate).toFixed(2):Number(data.price).toFixed(2)}</Typography>
+                <Typography sx={{ paddingLeft: '2%', minWidth:'125px' }} color="text.secondary">{context.currency?context.currency.toUpperCase():'USD $'}{rate?Number(data.price*rate).toFixed(2):Number(data.price).toFixed(2)}</Typography>
                 <IconButton >
                     <DeleteIcon onClick={deleteHandler}/>
                 </IconButton>

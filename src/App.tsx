@@ -16,7 +16,6 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import { createContext, useState } from 'react';
 import { GlobalContext } from "./globalContext";
 
-export const CurrencyContext = createContext<[currency:string, setCurrency:React.Dispatch<React.SetStateAction<string>>]>(null as any);
 export const RateContext = createContext<[rate:number, setRate:React.Dispatch<React.SetStateAction<number>>]>(null as any);
 export const SortContext = createContext<[sort:string, setSort:React.Dispatch<React.SetStateAction<string>>]>(null as any);
 
@@ -48,7 +47,6 @@ function App() {
         <CustomizedTabs cart={cart}/>
       </nav>
       <main>
-      <CurrencyContext.Provider value={[currency, setCurrency]}>
       <SortContext.Provider value={[sort, setSort]}>
       <RateContext.Provider value={[rate, setRate]}>
       <Routes>
@@ -66,7 +64,6 @@ function App() {
       </Routes>
       </RateContext.Provider>
       </SortContext.Provider>
-      </CurrencyContext.Provider>
       </main>
       </GlobalContext.Provider>
       <Footer/>

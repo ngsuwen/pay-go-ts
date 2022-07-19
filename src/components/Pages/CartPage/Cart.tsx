@@ -1,14 +1,13 @@
 import { useContext, useState } from 'react';
 import { Box, List, Container, ListItem, Typography, Button, Grid, Divider, Dialog, DialogContent, DialogContentText, DialogActions } from '@mui/material';
 import CartItem from './CartItem';
-import { CurrencyContext, RateContext } from '../../../App'
+import { RateContext } from '../../../App'
 import { GlobalContext } from '../../../globalContext';
 
 export default function Cart() {
     const [open, setOpen] = useState<boolean>(false);
     const context = useContext(GlobalContext);
     const [rate] = useContext(RateContext);
-    const [currency] = useContext(CurrencyContext);
 
     const cartItemList = context.cart.map((item, index) =>
         <CartItem data={item} key={index} />)
@@ -45,7 +44,7 @@ export default function Cart() {
                     <Grid container direction="column" spacing={3} >
                         <Grid item />
                         <Grid item style={{ display: "flex", justifyContent: "flex-end" }}>
-                            <Typography fontWeight='bold' color="text.secondary">Total Cost: {currency ? currency.toUpperCase() : 'USD $'}{Number(totalCost).toFixed(2)}</Typography>
+                            <Typography fontWeight='bold' color="text.secondary">Total Cost: {context.currency ? context.currency.toUpperCase() : 'USD $'}{Number(totalCost).toFixed(2)}</Typography>
                         </Grid><Grid item style={{ display: "flex", justifyContent: "flex-end" }}>
                             <Button sx={{ color: "text.secondary", fontSize: 12 }} variant="outlined" color='inherit' onClick={openHandler}>Check out</Button>
                         </Grid>
