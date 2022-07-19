@@ -4,7 +4,8 @@ import { Alert, Snackbar, IconButton, Box, Container, Card, CardContent, Typogra
 import QtySelector from "./QtySelector";
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import ImageZoom from "./ImageZoom";
-import { DataContext, CurrencyContext, RateContext } from "../../../App";
+import { CurrencyContext, RateContext } from "../../../App";
+import { GlobalContext } from "../../../globalContext";
 import { ProductData } from "../../ProductCard";
 
 export default function Product() {
@@ -18,7 +19,7 @@ export default function Product() {
         title: '',
         amount: 0
     });
-    const [cart, setCart] = useContext(DataContext);
+    const context = useContext(GlobalContext);
     const [currency] = useContext(CurrencyContext);
     const [alert, setAlert] = useState(false);
     const qtyRef = useRef<HTMLInputElement>(null);
@@ -36,21 +37,21 @@ export default function Product() {
     };
 
     const addToCart = () => {
-        const index = cart.findIndex((element) => element.title === data.title)
+        const index = context.cart.findIndex((element) => element.title === data.title)
         if (index === -1) {
             if (qtyRef.current && qtyRef.current.value === '') {
                 data.quantity = 1
             } else if (qtyRef.current) {
                 data.quantity = Number(qtyRef.current.value)
             }
-            setCart([...cart, data])
+            context.setCart([...context.cart, data])
         } else {
             if (qtyRef.current && qtyRef.current.value === '') {
-                cart[index].quantity += 1
-                setCart([...cart])
+                context.cart[index].quantity += 1
+                context.setCart([...context.cart])
             } else if (qtyRef.current){
-                cart[index].quantity += Number(qtyRef.current.value)
-                setCart([...cart])
+                context.cart[index].quantity += Number(qtyRef.current.value)
+                context.setCart([...context.cart])
             }
         }
         setAlert(true)
