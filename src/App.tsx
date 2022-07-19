@@ -14,8 +14,8 @@ import UserDetails from "./components/Pages/UserPage/UserDetails";
 import { ProductData } from "./components/ProductCard";
 import { Route, Routes, Navigate } from "react-router-dom";
 import { createContext, useState } from 'react';
+import { GlobalContext } from "./globalContext";
 
-export const UserContext = createContext<[userId:string, setUserId:React.Dispatch<React.SetStateAction<string>>]>(null as any);
 export const DataContext = createContext<[cart:ProductData[], setCart:React.Dispatch<React.SetStateAction<ProductData[]>>]>(null as any);
 export const CurrencyContext = createContext<[currency:string, setCurrency:React.Dispatch<React.SetStateAction<string>>]>(null as any);
 export const RateContext = createContext<[rate:number, setRate:React.Dispatch<React.SetStateAction<number>>]>(null as any);
@@ -28,9 +28,22 @@ function App() {
   const [cart, setCart] = useState<ProductData[]>([]);
   const [userId, setUserId] = useState<string>('');
 
+  const context = {
+    userId,
+    setUserId,
+    cart,
+    setCart,
+    currency,
+    setCurrency,
+    rate,
+    setRate,
+    sort,
+    setSort
+  }
+
   return (
     <>
-      <UserContext.Provider value={[userId, setUserId]}>
+      <GlobalContext.Provider value={context}>
       <nav>
         <Header/>
         <CustomizedTabs cart={cart}/>
@@ -58,7 +71,7 @@ function App() {
       </CurrencyContext.Provider>
       </DataContext.Provider>
       </main>
-      </UserContext.Provider>
+      </GlobalContext.Provider>
       <Footer/>
     </>
   );

@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { Grid, Divider, Container, Box, Typography, CircularProgress } from '@mui/material';
-import { UserContext } from "../../../App";
+import { GlobalContext } from "../../../globalContext";
 
 interface Address {
     city: string;
@@ -23,7 +23,7 @@ type UserData = {
 
 export default function UserDetails() {
     const [data, setData] = useState<UserData | null>(null)
-    const [userId] = useContext(UserContext)
+    const context = useContext(GlobalContext)
 
     const fetchData = async () => {
         try {
@@ -38,12 +38,12 @@ export default function UserDetails() {
     useEffect(() => {
         const getData = async () => {
             const response = await fetchData();
-            const filter = response.filter((element:any)=>(element.username===userId))
+            const filter = response.filter((element:any)=>(element.username===context.userId))
             console.log(filter)
             setData(filter[0])
         };
         getData();
-    }, [userId]);
+    }, [context.userId]);
 
     return (
         <Container maxWidth='lg' sx={{ minHeight: '62vh' }}>

@@ -2,8 +2,8 @@ import { useState, useRef, useContext } from 'react';
 import { Button, TextField, Typography, Box, FormControl, InputLabel, OutlinedInput, InputAdornment, IconButton } from '@mui/material';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import { loginAuth } from './LoginAuth'
-import { UserContext } from '../../../App';
+import { loginAuth } from './loginAuth'
+import { GlobalContext } from '../../../globalContext';
 import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
@@ -11,9 +11,9 @@ export default function Login() {
     const [showPassword, setShowPassword] = useState(false);
     const userLogin = useRef<HTMLInputElement>();
     const userPassword = useRef<HTMLInputElement>();
-    const [userId, setUserId] = useContext(UserContext)
+    const context = useContext(GlobalContext)
 
-    console.log(userId)
+    console.log(context.userId)
 
     const handleClickShowPassword = () => {
         setShowPassword(showPassword ? false : true)
@@ -26,7 +26,7 @@ export default function Login() {
         }
         if (checkUserAuth){
             const token:string = checkUserAuth[0]
-            setUserId(token?checkUserAuth[1] : '')
+            context.setUserId(token?checkUserAuth[1] : '')
             navigate(token?'/user':'/login-invalid')
         }
     }
