@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/pay-go-ts/static/css/main.1dd51a17.css",
-    "main.js": "/pay-go-ts/static/js/main.0799281a.js",
+    "main.js": "/pay-go-ts/static/js/main.257149c2.js",
     "index.html": "/pay-go-ts/index.html",
     "main.1dd51a17.css.map": "/pay-go-ts/static/css/main.1dd51a17.css.map",
-    "main.0799281a.js.map": "/pay-go-ts/static/js/main.0799281a.js.map"
+    "main.257149c2.js.map": "/pay-go-ts/static/js/main.257149c2.js.map"
   },
   "entrypoints": [
     "static/css/main.1dd51a17.css",
-    "static/js/main.0799281a.js"
+    "static/js/main.257149c2.js"
   ]
 }
