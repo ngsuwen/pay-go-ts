@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { Card, CardContent, CardMedia, CardActionArea, Typography, Box } from '@mui/material';
 import { Link } from "react-router-dom"
 import { GlobalContext } from "../globalContext";
-import { RateContext } from "../App";
 
 export type ProductData = {
     id: number;
@@ -17,7 +16,6 @@ export type ProductData = {
   
 export default function ProductCard({ data }:{ data: ProductData}) {
     const context = useContext(GlobalContext);
-    const [rate] = useContext(RateContext);
 
     return (
         <Link style={{textDecoration:'none'}} to={`/category/${data.category}/${data.id}`}>
@@ -59,7 +57,7 @@ export default function ProductCard({ data }:{ data: ProductData}) {
                         </Typography>
                         <Typography textAlign='center' variant="subtitle2" color="text.secondary">
                             {/* {currency?currency.toUpperCase():'USD $'}{rate?Number(data.price*rate).toFixed(2):Number(data.price).toFixed(2)} */}
-                            {context.currency.toUpperCase()}{Number(data.price*rate).toFixed(2)}
+                            {context.currency.toUpperCase()}{Number(data.price*context.rate).toFixed(2)}
                         </Typography>
                     </CardContent>
                 </CardActionArea>

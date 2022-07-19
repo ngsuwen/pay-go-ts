@@ -4,7 +4,6 @@ import { Alert, Snackbar, IconButton, Box, Container, Card, CardContent, Typogra
 import QtySelector from "./QtySelector";
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import ImageZoom from "./ImageZoom";
-import { RateContext } from "../../../App";
 import { GlobalContext } from "../../../globalContext";
 import { ProductData } from "../../ProductCard";
 
@@ -22,18 +21,6 @@ export default function Product() {
     const context = useContext(GlobalContext);
     const [alert, setAlert] = useState(false);
     const qtyRef = useRef<HTMLInputElement>(null);
-    const [rate] = useContext(RateContext);
-
-    const fetchData = async () => {
-        try {
-            const response = await fetch(`https://fakestoreapi.com/products/${params.id}`);
-            const data = await response.json();
-            console.log(data);
-            return data;
-        } catch (err) {
-            console.log(err);
-        }
-    };
 
     const addToCart = () => {
         const index = context.cart.findIndex((element) => element.title === data.title)
@@ -60,13 +47,18 @@ export default function Product() {
         setAlert(false)
     };
 
-    useEffect(() => {
+    useEffect(() => { 
         const getData = async () => {
-            const response = await fetchData();
-            setData(response);
+            try {
+                const response = await fetch(`https://fakestoreapi.com/products/${params.id}`);
+                const data = await response.json();
+                setData(data);
+            } catch (err) {
+                console.log(err);
+            }
         };
         getData();
-    }, [params.category]);
+    }, [params.category, params.id]);
 
     return (
         <Container maxWidth='lg'>
@@ -91,7 +83,7 @@ export default function Product() {
                                     {data.description}
                                 </Typography>
                                 <Typography sx={{ padding: 1 }} variant="subtitle1" color="text.secondary" fontWeight='bold'>
-                                    {context.currency ? context.currency.toUpperCase() : 'USD $'}{rate ? Number(data.price * rate).toFixed(2) : Number(data.price).toFixed(2)}
+                                    {context.currency ? context.currency.toUpperCase() : 'USD $'}{context.rate ? Number(data.price * context.rate).toFixed(2) : Number(data.price).toFixed(2)}
                                 </Typography>
                                 <Typography sx={{ padding: 1 }} variant="subtitle1" color="text.secondary">
                                     Quantity:<br />

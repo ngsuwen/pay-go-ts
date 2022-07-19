@@ -1,6 +1,5 @@
 import { useContext } from 'react';
 import { Typography, Select, FormControl, MenuItem, InputLabel, Box, SelectChangeEvent } from '@mui/material';
-import { RateContext } from '../../../App';
 import { GlobalContext } from '../../../globalContext';
 
 const traditional = ['eur','sgd','usd']
@@ -16,17 +15,14 @@ async function currencyApi(currency:any){
 }
 
 export default function CurrencyOption() {
-    const [rate, setRate] = useContext(RateContext)
     const context=useContext(GlobalContext);
-    
-    console.log(rate)
 
     async function handleChange(event: SelectChangeEvent){
         context.setCurrency(event.target.value);
         // assuming currencies have <=4 letters
         const currencyInput = event.target.value.substring(0,4)
         const getRate = await currencyApi(currencyInput.replace(/\s+/g, ''))
-        setRate(getRate)
+        context.setRate(getRate)
     };
 
     return (

@@ -13,11 +13,8 @@ import LoginError from "./components/Pages/LoginPage/LoginError";
 import UserDetails from "./components/Pages/UserPage/UserDetails";
 import { ProductData } from "./components/ProductCard";
 import { Route, Routes, Navigate } from "react-router-dom";
-import { createContext, useState } from 'react';
+import { useState } from 'react';
 import { GlobalContext } from "./globalContext";
-
-export const RateContext = createContext<[rate:number, setRate:React.Dispatch<React.SetStateAction<number>>]>(null as any);
-export const SortContext = createContext<[sort:string, setSort:React.Dispatch<React.SetStateAction<string>>]>(null as any);
 
 function App() {
   const [currency, setCurrency] = useState<string>('usd $');
@@ -47,8 +44,6 @@ function App() {
         <CustomizedTabs cart={cart}/>
       </nav>
       <main>
-      <SortContext.Provider value={[sort, setSort]}>
-      <RateContext.Provider value={[rate, setRate]}>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/category/:category' element={<Category />} />
@@ -62,8 +57,6 @@ function App() {
         <Route path='/error' element={<Error />} />
         <Route path='/*' element={<Navigate to='/error' />} />
       </Routes>
-      </RateContext.Provider>
-      </SortContext.Provider>
       </main>
       </GlobalContext.Provider>
       <Footer/>

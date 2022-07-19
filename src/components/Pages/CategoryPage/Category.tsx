@@ -5,12 +5,10 @@ import Product from '../../ProductCard';
 import SortOption from './SortOption';
 import CurrencyOption from './CurrencyOption';
 import { sortFunction } from './sortFunction';
-import { SortContext } from "../../../App";
 import { GlobalContext } from "../../../globalContext";
 import { ProductData } from "../../ProductCard";
 
 export default function Category() {
-    const [sort]=useContext(SortContext);
     const context=useContext(GlobalContext);
     const params = useParams();
     const [data, setData] = useState<ProductData[]>([]);
@@ -23,7 +21,7 @@ export default function Category() {
             try {
             const response = await fetch(`https://fakestoreapi.com/products/category/${params.category}`);
             const data = await response.json();
-            sortFunction(data, sort)
+            sortFunction(data, context.sort)
             // console.log(response)
             setData(data);
             } catch (err) {
@@ -32,7 +30,7 @@ export default function Category() {
             // console.log(sort)
         };
         getData();
-    }, [params.category, sort, context.currency]);
+    }, [params.category, context.sort, context.currency]);
 
     return (
         <Container maxWidth='lg' sx={{ minHeight: '62vh' }}>

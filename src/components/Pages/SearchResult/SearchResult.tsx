@@ -4,14 +4,12 @@ import { Grid, Container, Box, CircularProgress } from '@mui/material';
 import Product from '../../ProductCard';
 import SortOption from '../CategoryPage/SortOption';
 import CurrencyOption from '../CategoryPage/CurrencyOption';
-import { sortFunction } from '../CategoryPage/sortFunction'
-import { SortContext } from "../../../App";
+import { sortFunction } from '../CategoryPage/sortFunction';
 import { GlobalContext } from "../../../globalContext";
 import { ProductData } from "../../ProductCard";
 
 export default function Search() {
     const context = useContext(GlobalContext);
-    const [sort]=useContext(SortContext)
     const params = useParams();
     const [data, setData] = useState([]);
 
@@ -34,12 +32,12 @@ export default function Search() {
         const getData = async () => {
             const response = await fetchData();
             // console.log(sort)
-            sortFunction(response, sort)
+            sortFunction(response, context.sort)
             // console.log(response)
             setData(response);
         };
         getData();
-    }, [params.term, sort, context.currency]);
+    }, [params.term, context.sort, context.currency]);
 
     return (
         <Container maxWidth='lg' sx={{minHeight:'62vh'}}>

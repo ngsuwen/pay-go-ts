@@ -1,12 +1,12 @@
 import {useContext} from 'react';
 import { Typography, Select, FormControl, MenuItem, InputLabel, Box, SelectChangeEvent } from '@mui/material';
-import { SortContext } from '../../../App';
+import { GlobalContext } from '../../../globalContext';
 
 export default function SortOption() {
-    const [sort, setSort]=useContext(SortContext)
+    const context=useContext(GlobalContext)
     
     const handleChange = (event: SelectChangeEvent) => {
-        setSort(event.target.value);
+        context.setSort(event.target.value);
     };
 
     return (
@@ -14,7 +14,7 @@ export default function SortOption() {
             <FormControl variant="standard" sx={{ m: 1, minWidth: 200 }}>
                 <InputLabel><Typography variant="body2" color="textSecondary">Sort by:</Typography></InputLabel>
                 <Select
-                    value={sort}
+                    value={context.sort}
                     onChange={handleChange}
                 >
                     <MenuItem value="">
