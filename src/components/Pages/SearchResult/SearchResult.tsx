@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useParams } from 'react-router-dom'
 import { Grid, Container, Box, CircularProgress } from '@mui/material';
-import Product from '../../ProductCard';
+import ProductCard from '../../ProductCard';
 import SortOption from '../CategoryPage/SortOption';
 import CurrencyOption from '../CategoryPage/CurrencyOption';
 import { sortFunction } from '../CategoryPage/sortFunction';
@@ -11,26 +11,27 @@ import { ProductData } from "../../ProductCard";
 export default function Search() {
     const context = useContext(GlobalContext);
     const params = useParams();
-    const [data, setData] = useState([]);
+    const [data, setData] = useState<ProductData[]>([]);
 
     let filteredData = data.filter((element:ProductData) => element.title.toLowerCase().includes(`${params.term}`))
-    const products = filteredData.map((element) => <Grid item><Product data={element} /></Grid>)
+    const products = filteredData.map((element) => <Grid item><ProductCard data={element} key={element.id}/></Grid>)
 
     const fetchData = async () => {
         try {
             const response = await fetch(`https://fakestoreapi.com/products`);
-            const data = await response.json();
+            const data:ProductData[] = await response.json();
             // console.log(data);
             return data;
         } catch (err) {
             console.log(err);
+            return []
         }
     };
 
     useEffect(() => {
         setData([])
         const getData = async () => {
-            const response = await fetchData();
+            const response:ProductData[] = await fetchData();
             // console.log(sort)
             sortFunction(response, context.sort)
             // console.log(response)

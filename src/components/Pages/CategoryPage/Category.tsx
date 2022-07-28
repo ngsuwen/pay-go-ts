@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import { useParams } from 'react-router-dom'
 import { Grid, Container, Box, CircularProgress } from '@mui/material';
-import Product from '../../ProductCard';
+import ProductCard from "../../ProductCard";
 import SortOption from './SortOption';
 import CurrencyOption from './CurrencyOption';
 import { sortFunction } from './sortFunction';
@@ -13,7 +13,7 @@ export default function Category() {
     const params = useParams();
     const [data, setData] = useState<ProductData[]>([]);
 
-    const products = data.map((element) => <Grid item><Product data={element} /></Grid>)
+    const products = data.map((element) => <Grid item><ProductCard data={element} key={element.id} /></Grid>)
 
     useEffect(() => {
         const getData = async () => {

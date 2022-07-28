@@ -5,7 +5,7 @@ import { ProductData } from "../../ProductCard";
 
 export default function Products() {
     const [data, setData] = useState<ProductData[]>([]);
-    const products = data.map((element) => <Grid item><ProductCard data={element} /></Grid>)
+    const products = data.map((element) => <Grid item><ProductCard data={element} key={element.id}/></Grid>)
 
     useEffect(() => {
         const getData = async () => {

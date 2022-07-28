@@ -1,6 +1,6 @@
 import { ProductData } from "../../ProductCard";
 
-export function sortFunction(array:ProductData[], key:any) {
+export function sortFunction(array:ProductData[], key:string) {
     function sortByKey(a: ProductData, b: ProductData) {
         var x = a[key];
         var y = b[key];

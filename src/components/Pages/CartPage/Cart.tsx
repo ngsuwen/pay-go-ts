@@ -7,8 +7,8 @@ export default function Cart() {
     const [open, setOpen] = useState<boolean>(false);
     const context = useContext(GlobalContext);
 
-    const cartItemList = context.cart.map((item, index) =>
-        <CartItem data={item} key={index} />)
+    const cartItemList = context.cart.map((item) =>
+        <CartItem data={item} key={item.id} />)
 
     let totalCost:number = 0
     const calTotalCost = () => context.cart.forEach(item => totalCost += item.quantity * item.price * (context.rate ? context.rate : 1))

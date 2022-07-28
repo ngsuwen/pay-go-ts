@@ -14,7 +14,7 @@ export type ProductData = {
     [key: string]: any;
   }
   
-export default function ProductCard({ data }:{ data: ProductData}) {
+export default function ProductCard({ data, key }:{ data: ProductData, key:number}) {
     const context = useContext(GlobalContext);
 
     return (

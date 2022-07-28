@@ -23,8 +23,8 @@ export default function Footer() {
               <TableCell sx={{ padding: '0.5em', border: 'none', textAlign: 'left', color: '#757575' }} rowSpan={4}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid sequatur, quid repugnet, vident. Quae sequuntur igitur? Non semper, inquam; Qui ita affectus, beatum esse numquam probabis; Duo Reges: constructio interrete. Tibi hoc incredibile, quod beatissimum.</TableCell>
             </TableRow>
 
-              {rows.map((row) => (
-                <TableRow>
+              {rows.map((row, index) => (
+                <TableRow key={index} >
                   <TableCell sx={{ padding: '0.5em', border: 'none', textAlign: 'left' }} ><Link style={{textDecoration:'none', color:'#757575'}} to={row.link}>{row.text}</Link></TableCell> 
                   <TableCell sx={{ padding: '0.5em', border: 'none', textAlign: 'left' }} ><Link style={{textDecoration:'none', color:'#757575'}} to={row.link2}>{row.text2}</Link></TableCell> 
                 </TableRow>
