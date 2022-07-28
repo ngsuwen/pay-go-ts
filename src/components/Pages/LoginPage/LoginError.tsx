@@ -2,7 +2,7 @@ import { useState, useRef, useContext } from 'react';
 import { Button, TextField, Typography, Box, FormControl, InputLabel, OutlinedInput, InputAdornment, IconButton } from '@mui/material';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import { loginAuth } from './loginAuth'
+import { loginAuth } from '../../../services/loginAuth'
 import { GlobalContext } from '../../../globalContext';
 import { useNavigate } from 'react-router-dom';
 

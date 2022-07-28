@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Grid, Container, CircularProgress } from '@mui/material';
-import ProductCard from "../../ProductCard";
-import { ProductData } from "../../ProductCard";
+import ProductCard, { ProductData } from "../../ProductCard";
 
 export default function Products() {
     const [data, setData] = useState<ProductData[]>([]);

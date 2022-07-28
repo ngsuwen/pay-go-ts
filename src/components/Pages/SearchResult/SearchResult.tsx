@@ -4,7 +4,7 @@ import { Grid, Container, Box, CircularProgress } from '@mui/material';
 import ProductCard from '../../ProductCard';
 import SortOption from '../CategoryPage/SortOption';
 import CurrencyOption from '../CategoryPage/CurrencyOption';
-import { sortFunction } from '../CategoryPage/sortFunction';
+import { sortFunction } from '../../../utils/sortFunction';
 import { GlobalContext } from "../../../globalContext";
 import { ProductData } from "../../ProductCard";
 
